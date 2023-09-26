@@ -15,9 +15,9 @@ public class CourseCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var course1 = new Course(1, "Learn AWS dimwit", "Some jerk");
-        var course2 = new Course(2, "Learn Azure dimwit", "Some other jerk");
-        var course3 = new Course(3, "Learn DevOps dimwit", "Some guy");
+        var course1 = new Course(1, "Learn JPA dimwit", "Some jerk");
+        var course2 = new Course(2, "Learn Spring Data dimwit", "Some other jerk");
+        var course3 = new Course(3, "Learn DevOps", "Fred");
 
         repository.save(course1);
         repository.save(course2);
@@ -27,5 +27,15 @@ public class CourseCommandLineRunner implements CommandLineRunner {
 
         System.out.println(repository.findById(2l));
         System.out.println(repository.findById(3l));
+
+        System.out.println("----------");
+        System.out.println(repository.findAll());
+        System.out.println(repository.count());
+
+        System.out.println("----------");
+        System.out.println(repository.findByAuthor("Fred"));
+
+        System.out.println("----------");
+        System.out.println(repository.findByName("Learn Spring Data dimwit"));
     }
 }
