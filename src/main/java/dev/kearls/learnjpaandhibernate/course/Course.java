@@ -1,11 +1,18 @@
 package dev.kearls.learnjpaandhibernate.course;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
 
 //@Component
+@Entity(name="COURSE")
 public class Course {
+    @Id
     private long id;
+    @Column(name="name")  // Note: Name is optional
     private String name;
+    @Column(name="author")
     private String author;
 
     public Course() {} // Do we have to have a noop constructor for hibernate?
